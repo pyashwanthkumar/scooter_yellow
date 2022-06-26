@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose"
-import { qlistI } from "src/common/interfaces/qlist.interface";
+import { qaflistI } from "../interfaces/qaflist.interface";
 
 @Schema()
 export class QandAwithFeed {
@@ -13,12 +13,15 @@ export class QandAwithFeed {
 
     @Prop()
     feedback : string
+
+    @Prop()
+    points : number
 }
 
 export const QandAwithFeedSchema = SchemaFactory.createForClass(QandAwithFeed)
 
 @Schema()
-export class Exam {
+export class CreateExam {
 
     @Prop()
     name : string
@@ -32,8 +35,11 @@ export class Exam {
     @Prop()
     time : string
 
+    @Prop()
+    grade : number
+
     @Prop({type : QandAwithFeedSchema})
-    qlist : qlistI 
+    qaflist : qaflistI 
 }
 
-export const ExamSchem = SchemaFactory.createForClass(Exam)
+export const CreateExamSchema = SchemaFactory.createForClass(CreateExam)
