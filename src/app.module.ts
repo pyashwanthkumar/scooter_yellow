@@ -9,6 +9,8 @@ import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 import { AppConfigModule } from './config/app-configuration.module';
 import { AppConfigService } from './config/app-configuration.service';
 import { CreateExamModule } from './exam/create-exam.module';
+import { UsersModule } from './users/users.module';
+import { CreateTestModule } from './create_test/create_test.module';
 
   
 
@@ -29,7 +31,9 @@ import { CreateExamModule } from './exam/create-exam.module';
         return options
       },
     }),
-    CreateExamModule
+    CreateExamModule,
+    UsersModule,
+    CreateTestModule
   ],
   controllers: [AppController],
   providers: [AppService],
