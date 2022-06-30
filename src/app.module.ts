@@ -11,6 +11,8 @@ import { AppConfigService } from './config/app-configuration.service';
 import { CreateExamModule } from './exam/create-exam.module';
 import { UsersModule } from './users/users.module';
 import { CreateTestModule } from './create_test/create_test.module';
+import { GiveTestModule } from './give_test/give_test.module';
+
 
   
 
@@ -33,7 +35,8 @@ import { CreateTestModule } from './create_test/create_test.module';
     }),
     CreateExamModule,
     UsersModule,
-    CreateTestModule
+    CreateTestModule,
+    GiveTestModule
   ],
   controllers: [AppController],
   providers: [AppService],
