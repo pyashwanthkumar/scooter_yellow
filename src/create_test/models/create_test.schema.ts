@@ -1,23 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
-
-@Schema()
-export class QuesAnsFeed extends Document {
-
-    @Prop()
-    question : string
-
-    @Prop()
-    answer : string
-
-    @Prop()
-    feedback : string
-
-    @Prop()
-    points : number
-}
-
-const QuesAnsFeedSchema = SchemaFactory.createForClass(QuesAnsFeed)
+import { QuesAnsFeed, QuesAnsFeedSchema } from "./QuesAnsFeed.schema";
 
 @Schema()
 export class CreateTest extends Document {
@@ -36,8 +19,11 @@ export class CreateTest extends Document {
     @Prop()
     points : number
 
-    @Prop({type : QuesAnsFeedSchema})
-    ques_ans_feed : QuesAnsFeed[]
+    @Prop()
+    num_of_questions : number
+
+    @Prop([QuesAnsFeedSchema])
+    ques_ans_feed : [QuesAnsFeed]
 }
 
 export const CreateTestSchema = SchemaFactory.createForClass(CreateTest)

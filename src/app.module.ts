@@ -12,9 +12,9 @@ import { CreateExamModule } from './exam/create-exam.module';
 import { UsersModule } from './users/users.module';
 import { CreateTestModule } from './create_test/create_test.module';
 import { GiveTestModule } from './give_test/give_test.module';
+import { TestReportModule } from './test_report/test_report.module';
+import { GradeTestModule } from './grade_test/grade_test.module';
 
-
-  
 
 @Module({
   imports: [
@@ -36,7 +36,9 @@ import { GiveTestModule } from './give_test/give_test.module';
     CreateExamModule,
     UsersModule,
     CreateTestModule,
-    GiveTestModule
+    GiveTestModule,
+    TestReportModule,
+    GradeTestModule
   ],
   controllers: [AppController],
   providers: [AppService],

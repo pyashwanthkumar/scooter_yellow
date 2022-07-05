@@ -17,17 +17,15 @@ export class CreateTestService {
     }
 
     async updateTest(id : string, addQuestionReqDTO : AddQuestionReqDTO) : Promise<any> {
-        // try{
-        //     const test = await this.createTestRepository.findTest(id)
-        //     if(!test){
-        //         return NotFoundException
-        //     }
-
-
-
-        // }catch{
-        //     return BadRequestException
-        // }
+        try{
+            const test = await this.createTestRepository.findTest(id)
+            if(!test){
+                return NotFoundException
+            }
+            return this.createTestRepository.addQuestion(id, addQuestionReqDTO)
+        }catch{
+            return BadRequestException
+        }
     }
 
     private settingResponse(createTest : CreateTest) : TestSettingResponse {

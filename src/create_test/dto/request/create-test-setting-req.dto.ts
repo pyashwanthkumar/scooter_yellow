@@ -19,5 +19,9 @@ export class TestSettingRequest{
 
     @IsNumber()
     @IsNotEmpty()
+    num_of_questions : number
+
+    @IsNumber()
+    @IsNotEmpty()
     points : number
 }
