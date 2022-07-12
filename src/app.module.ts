@@ -8,12 +8,13 @@ import { ConfigModule,ConfigService } from '@nestjs/config';
 import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 import { AppConfigModule } from './config/app-configuration.module';
 import { AppConfigService } from './config/app-configuration.service';
-import { CreateExamModule } from './exam/create-exam.module';
 import { UsersModule } from './users/users.module';
 import { CreateTestModule } from './create_test/create_test.module';
 import { GiveTestModule } from './give_test/give_test.module';
 import { TestReportModule } from './test_report/test_report.module';
-import { GradeTestModule } from './grade_test/grade_test.module';
+import { AuthController } from './auth/auth.controller';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -33,12 +34,11 @@ import { GradeTestModule } from './grade_test/grade_test.module';
         return options
       },
     }),
-    CreateExamModule,
     UsersModule,
     CreateTestModule,
     GiveTestModule,
     TestReportModule,
-    GradeTestModule
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
