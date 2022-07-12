@@ -1,5 +1,6 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
-import { hash } from 'bcrypt';
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { throws } from 'assert';
+import { hash, compare } from 'bcrypt';
 import { create } from 'domain';
 import { CreateUserRequest } from './dto/request/create-user-request.dto';
 import { UserResponse } from './dto/response/user-response.dto';
@@ -21,11 +22,24 @@ export class UsersService {
     }
 
     private async validateCreateUserRequest(createUserRequest : CreateUserRequest) : Promise<void>{
-        const user = await this.usersRepository.findOneByEmail(createUserRequest.email)
-
+        const user = await this.usersRepository.findOneByEmail(
+            createUserRequest.email,
+        )
         if (user) {
             throw new BadRequestException('This email already exists')
         }
+    }
+
+    async validateUser(email : string, password : string) : Promise<UserResponse> {
+        const user = await this.usersRepository.findOneByEmail(email)
+        if(!user){
+            throw new NotFoundException(`This email '${email}' does not exist`)
+        }
+        const passwordIsValid = await compare(password, user.password)
+        if(!passwordIsValid){
+            throw new UnauthorizedException('Credentials are invalid')
+        }
+        return this.buildResponse(user)
     }
 
     private buildResponse(user : User) : UserResponse {
