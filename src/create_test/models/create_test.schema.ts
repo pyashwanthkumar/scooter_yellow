@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
+import { AddQuestionReqDTO } from "../dto/request/add-question-req.dto";
 import { QuesAnsFeed, QuesAnsFeedSchema } from "./QuesAnsFeed.schema";
 
 @Schema()
@@ -23,7 +24,7 @@ export class CreateTest extends Document {
     num_of_questions : number
 
     @Prop([QuesAnsFeedSchema])
-    ques_ans_feed : [QuesAnsFeed]
+    ques_ans_feed : [AddQuestionReqDTO]
 }
 
 export const CreateTestSchema = SchemaFactory.createForClass(CreateTest)

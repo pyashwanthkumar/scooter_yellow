@@ -1,10 +1,10 @@
-import { IsString } from "class-validator";
+import { IsArray, IsNumber, IsString } from "class-validator";
 
-export class Answer {
+export class StudentAnswer {
     
     @IsString()
     question : string
 
-    @IsString()
-    answer : string
+    @IsNumber()
+    selected : number
 }

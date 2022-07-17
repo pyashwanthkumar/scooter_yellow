@@ -8,7 +8,7 @@ export class Answers extends Document {
     question : string
 
     @Prop()
-    answer : string
+    selected : number
 }
 
 export const AnswersSchema = SchemaFactory.createForClass(Answers)

@@ -15,6 +15,7 @@ import { TestReportModule } from './test_report/test_report.module';
 import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
+import { GradeTestModule } from './grade_test/grade_test.module';
 
 
 @Module({
@@ -38,7 +39,8 @@ import { AuthModule } from './auth/auth.module';
     CreateTestModule,
     GiveTestModule,
     TestReportModule,
-    AuthModule
+    AuthModule,
+    GradeTestModule
   ],
   controllers: [AppController],
   providers: [AppService],

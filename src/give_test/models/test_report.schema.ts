@@ -2,9 +2,10 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { AnswersSchema } from "./answers.schema";
 import { Document } from "mongoose"
 import { StudentAnswer } from "../dto/request/answers.dto";
+import { Results, ResultsSchema } from "./results.schema";
 
 @Schema()
-export class GiveTest extends Document {
+export class TestReport extends Document {
 
     @Prop()
     test_name : string
@@ -24,8 +25,8 @@ export class GiveTest extends Document {
     @Prop()
     subject : string
 
-    @Prop([AnswersSchema])
-    answers : [StudentAnswer]
+    @Prop([ResultsSchema])
+    results : [Results]
 }
 
-export const GiveTestSchema = SchemaFactory.createForClass(GiveTest)
+export const TestReportSchema = SchemaFactory.createForClass(TestReport)
