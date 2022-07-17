@@ -24,7 +24,7 @@ export class CreateTestRepository{
 
     async addQuestion(id : string, addQuestionReqDTO : AddQuestionReqDTO) : Promise<any> {
     
-        console.log(addQuestionReqDTO)
+        // console.log(addQuestionReqDTO)
         this.createTest.findOneAndUpdate(
             {_id : id},
             {$push : {ques_ans_feed : addQuestionReqDTO}},

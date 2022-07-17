@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsArray, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { AddQuestionReqDTO } from "./add-question-req.dto";
 
 export class TestSettingRequest{
     
@@ -24,4 +25,6 @@ export class TestSettingRequest{
     @IsNumber()
     @IsNotEmpty()
     points : number
+
+    ques_ans_feed : [AddQuestionReqDTO]
 }
