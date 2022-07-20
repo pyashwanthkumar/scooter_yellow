@@ -23,11 +23,9 @@ export class GiveTestService {
     gradeTest(test : CreateTest, submitTestReqDTO : SubmitTestReqDTO){
         const studentAnswer = submitTestReqDTO.answers
         const testAnswer = test.ques_ans_feed
-        console.log(testAnswer)
         let results = []
         let res = (({test_name, student_name, student_id, semester, year, subject}) => ({test_name, student_name, student_id, semester, year, subject}))(submitTestReqDTO) 
         for(var i = 0; i < studentAnswer.length; i++){
-            console.log("i: " + i)
             const options = testAnswer[i].options_with_feedback
             const selected = studentAnswer[i].selected
             if(studentAnswer[i].selected != testAnswer[i].answer){
