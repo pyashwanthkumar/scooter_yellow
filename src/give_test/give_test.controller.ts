@@ -15,7 +15,7 @@ export class GiveTestController {
         return this.giveTestService.getTest(giveTestReqDTO)
    }
 
-    @Post('/submit')
+    @Post('submit')
     async submitTest(
         @Body() submitTestReqDTO : SubmitTestReqDTO) : Promise<any> {
         return this.giveTestService.submitTest(submitTestReqDTO)

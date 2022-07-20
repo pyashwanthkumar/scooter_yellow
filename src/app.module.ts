@@ -11,11 +11,11 @@ import { AppConfigService } from './config/app-configuration.service';
 import { UsersModule } from './users/users.module';
 import { CreateTestModule } from './create_test/create_test.module';
 import { GiveTestModule } from './give_test/give_test.module';
-import { TestReportModule } from './test_report/test_report.module';
+// import { TestReportModule } from './test_report/test_report.module';
 import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
-import { GradeTestModule } from './grade_test/grade_test.module';
+// import { GradeTestModule } from './grade_test/grade_test.module';
 
 
 @Module({
@@ -38,9 +38,9 @@ import { GradeTestModule } from './grade_test/grade_test.module';
     UsersModule,
     CreateTestModule,
     GiveTestModule,
-    TestReportModule,
+    // TestReportModule,
     AuthModule,
-    GradeTestModule
+    // GradeTestModule
   ],
   controllers: [AppController],
   providers: [AppService],
