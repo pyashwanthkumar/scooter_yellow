@@ -8,19 +8,19 @@ import { GiveTestRepository } from './give_test.repository';
 @Injectable()
 export class GiveTestService {
     
-    constructor(private readonly giveTestRepository : GiveTestRepository){}
+    constructor(private readonly giveTestRepository: GiveTestRepository){}
 
-    async submitTest(submitTestReqDTO : SubmitTestReqDTO) : Promise<any> {
-        const test = await this.giveTestRepository.findTest(submitTestReqDTO.test_name, submitTestReqDTO.year, submitTestReqDTO.semester)
+    async submitTest(submitTestReqDTO: SubmitTestReqDTO): Promise<any> {
+        const test = await this.giveTestRepository.findTest(submitTestReqDTO.year, submitTestReqDTO.test_name, submitTestReqDTO.semester)
         this.gradeTest(test, submitTestReqDTO)
         this.giveTestRepository.insertTest(submitTestReqDTO)
     }
 
-    async getTest(giveTestReqDTO : GiveTestReqDTO){
-        return this.giveTestRepository.findTest(giveTestReqDTO.test_name, giveTestReqDTO.year, giveTestReqDTO.semester)
+    async getTest(year: number, semester: string, test_name: string ){
+        return this.giveTestRepository.findTest(year, semester, test_name)
     }
 
-    gradeTest(test : CreateTest, submitTestReqDTO : SubmitTestReqDTO){
+    gradeTest(test: CreateTest, submitTestReqDTO: SubmitTestReqDTO){
         const studentAnswer = submitTestReqDTO.answers
         const testAnswer = test.ques_ans_feed
         let results = []
@@ -31,21 +31,21 @@ export class GiveTestService {
             if(studentAnswer[i].selected != testAnswer[i].answer){
                 // console.log(options[selected])
                 const result = {
-                    points : 0,
-                    correct_answer : options[testAnswer[i].answer].option,
-                    selected_answer : options[selected].option,
-                    feedback : options[selected].feedback
+                    points: 0,
+                    correct_answer: options[testAnswer[i].answer].option,
+                    selected_answer: options[selected].option,
+                    feedback: options[selected].feedback
                 }
                 results = [...results, result]
             }else{
                 const result = {
-                    points : testAnswer[i].points,
-                    selected_answer : options[selected].option,
+                    points: testAnswer[i].points,
+                    selected_answer: options[selected].option,
                 }
                 results = [...results, result]
             }
         }
-        res = {...res, ...{results : results}}
+        res = {...res, ...{results: results}}
         console.log(res)
         this.giveTestRepository.addTestReport(res)
     }
