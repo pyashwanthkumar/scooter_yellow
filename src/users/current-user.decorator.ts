@@ -3,6 +3,7 @@ import { UserResponse } from "./dto/response/user-response.dto";
 
 
 const getCurrentUserByContext = (context : ExecutionContext) : UserResponse => {
+    console.log("reaching here decorator user")
     return context.switchToHttp().getRequest().user
 }
 

@@ -12,8 +12,7 @@ import { UsersModule } from './users/users.module';
 import { CreateTestModule } from './create_test/create_test.module';
 import { GiveTestModule } from './give_test/give_test.module';
 import { TestReportModule } from './test_report/test_report.module';
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
+
 import { AuthModule } from './auth/auth.module';
 import { GradeTestModule } from './grade_test/grade_test.module';
 
@@ -31,7 +30,6 @@ import { GradeTestModule } from './grade_test/grade_test.module';
           useNewUrlParser : true,
           useUnifiedTopology : true,
         }
-        console.log(`options ${options}`)
         return options
       },
     }),

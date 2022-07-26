@@ -4,7 +4,7 @@ import { Module } from "@nestjs/common";
 
 @Module({
     exports: [AppConfigService],
-    imports: [ConfigModule.forRoot()],
+    imports: [ConfigModule.forRoot({isGlobal:true})],
     providers: [AppConfigService]
 })
 
