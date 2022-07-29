@@ -2,7 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { CreateTest } from "src/create_test/models/create_test.schema";
-import { TestReport } from "./models/test_report.schema";
+import { TestReport } from "src/test_report/models/test_report.schema";
+import { ResultI } from "./interfaces/test_report.interface";
 import { GiveTest } from "./models/give_test.schema";
 
 
@@ -28,11 +29,10 @@ export class GiveTestRepository {
             year, 
             semester 
         })
-        console.log(test)
         return test
     }
 
-    async addTestReport(result: Partial<TestReport>): Promise<any> {
+    async addTestReport(result: ResultI): Promise<any> {
         const report = new this.testReport(result)
         report.save()
     }

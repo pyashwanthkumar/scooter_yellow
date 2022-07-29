@@ -6,13 +6,10 @@ import {OptionsFeedbackDTO} from "../dto/request/add-question-req.dto"
 class OptionsWithFeedback extends Document {
     
     @Prop()
-    option : string
-
-    // @Prop()
-    // answer : boolean
+    option: string
 
     @Prop()
-    feedback : string
+    feedback: string
 }
 
 const OptionsWithFeedbackSchema = SchemaFactory.createForClass(OptionsWithFeedback)
@@ -21,16 +18,19 @@ const OptionsWithFeedbackSchema = SchemaFactory.createForClass(OptionsWithFeedba
 export class QuesAnsFeed extends Document {
 
     @Prop()
-    question : string
+    question_num: number
+
+    @Prop()
+    question: string
 
     @Prop([OptionsWithFeedbackSchema])
-    options_with_feedback : [OptionsFeedbackDTO]
+    options_with_feedback: [OptionsWithFeedback]
 
     @Prop()
-    answer : number
+    answer: number
 
     @Prop()
-    points : number
+    points: number
 }
 
 export const QuesAnsFeedSchema = SchemaFactory.createForClass(QuesAnsFeed)

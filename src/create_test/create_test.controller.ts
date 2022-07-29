@@ -19,7 +19,6 @@ export class CreateTestController {
     async addNextQuestion(
         @Param('id') id : string, @Body() addQuestionReqDTO : AddQuestionReqDTO        
     ) : Promise<any> {
-        console.log(addQuestionReqDTO)
         return this.createTestService.updateTest(id, addQuestionReqDTO)
     }
 

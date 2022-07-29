@@ -22,5 +22,4 @@ export class GiveTestController {
         @Body() submitTestReqDTO: SubmitTestReqDTO): Promise<any> {
         return this.giveTestService.submitTest(submitTestReqDTO)
     }
-
 }
