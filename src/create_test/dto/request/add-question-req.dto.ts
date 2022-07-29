@@ -1,34 +1,33 @@
 import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsString } from "class-validator";
 
-export class OptionsFeedbackDTO {
+export class OptionsFeedbackDTO{
+
     @IsString()
     @IsNotEmpty()
-    option : string
-   
-    // @IsBoolean()
-    // @IsNotEmpty()
-    // answer : boolean
+    option: string
     
     @IsString()
     @IsNotEmpty()
-    feedback : string
+    feedback: string
 }
 
 export class AddQuestionReqDTO{
 
+    question_num: number
+
     @IsString()
     @IsNotEmpty()
-    question : string
+    question: string
     
     @IsArray()
     @IsNotEmpty()
-    options_with_feedback : [OptionsFeedbackDTO]
+    options_with_feedback: [OptionsFeedbackDTO]
 
     @IsNumber()
     @IsNotEmpty()
-    answer : number
+    answer: number
 
     @IsNumber()
     @IsNotEmpty()
-    points : number
+    points: number
 }

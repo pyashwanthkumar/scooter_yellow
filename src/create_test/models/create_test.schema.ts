@@ -24,7 +24,7 @@ export class CreateTest extends Document {
     num_of_questions : number
 
     @Prop([QuesAnsFeedSchema])
-    ques_ans_feed : [AddQuestionReqDTO]
+    ques_ans_feed : [QuesAnsFeed]
 }
 
 export const CreateTestSchema = SchemaFactory.createForClass(CreateTest)
