@@ -15,6 +15,7 @@ import { TestReportModule } from './test_report/test_report.module';
 
 import { AuthModule } from './auth/auth.module';
 import { GradeTestModule } from './grade_test/grade_test.module';
+import { InteractionModule } from './interaction/interaction.module';
 
 
 @Module({
@@ -38,7 +39,8 @@ import { GradeTestModule } from './grade_test/grade_test.module';
     GiveTestModule,
     TestReportModule,
     AuthModule,
-    GradeTestModule
+    GradeTestModule,
+    InteractionModule
   ],
   controllers: [AppController],
   providers: [AppService],
